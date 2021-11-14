@@ -17,7 +17,7 @@ async def run(cmd):
 import json
 with open("DoNotTouch.json", "r") as f:
     config = json.load(f)['Among Us']
-if version == "":
+if version == "s":
     e = []
     for key in config['Version']:
         e.append(key)
