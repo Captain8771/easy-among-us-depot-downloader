@@ -2,6 +2,7 @@ dotdepot = input("Where is depotdownloader located? (absolute path) > ").rstrip(
 version = input("Version to download? (leave blank for list) > ").replace("s", "") + "s"
 username = input("Steam username? > ")
 password = input("Steam password? > ")
+from os import getcwd
 import asyncio
 async def run(cmd):
     proc = await asyncio.create_subprocess_shell(
@@ -31,4 +32,4 @@ except KeyError:
     raise SystemExit(0)
 asyncio.run(run(systemstring))
 print("Finished!")
-asyncio.run(run(f"explorer ./depots/{config['DepotID']}/"))
+asyncio.run(run(f"explorer {getcwd()}depots/{config['DepotID']}/"))
