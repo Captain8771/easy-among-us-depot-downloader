@@ -32,4 +32,4 @@ except KeyError:
     raise SystemExit(0)
 asyncio.run(run(systemstring))
 print("Finished!")
-asyncio.run(run(f"explorer {getcwd()}depots/{config['DepotID']}/"))
+asyncio.run(run(f"explorer {getcwd()}\\depots\\{config['DepotID']}"))
