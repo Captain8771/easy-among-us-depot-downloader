@@ -2,6 +2,7 @@
 ## Among Us Depot Downloader
 this script uses [Depot Downloader](https://github.com/SteamRE/DepotDownloader) to download older files of steam among us due to mod compatibility.
 
+This is __ONLY__ tested with python 3.9.
 
 ## Usage
 run the script, and enter the version you want (leave blank to list versions)
