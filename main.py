@@ -1,7 +1,7 @@
 #dotdepot = input("Where is depotdownloader located? (absolute path) > ").rstrip("/").rstrip("\\").replace("\\", "/")
 dotdepot = "./depotdownloader-2.4.5"
 version = input("Version to download? (leave blank for list) > ").replace("s", "") + "s"
-from os import getcwd
+from os import getcwd, name
 import asyncio
 async def run(cmd):
     proc = await asyncio.create_subprocess_shell(
@@ -9,11 +9,12 @@ async def run(cmd):
         stdout=asyncio.subprocess.PIPE,
         stderr=asyncio.subprocess.PIPE)
     stdout, stderr = await proc.communicate()
-    print(f'[{cmd!r} exited with {proc.returncode}]')
+    # print(f'[{cmd!r} exited with {proc.returncode}]')
     if stdout:
         print(f'[stdout]\n{stdout.decode()}')
     if stderr:
         print(f'[stderr]\n{stderr.decode()}')
+    return (proc, stdout, stderr)
 import json
 with open("DoNotTouch.json", "r") as f:
     config = json.load(f)['Among Us']
@@ -31,6 +32,10 @@ try:
 except KeyError:
     print(f"Version {version!r} not found")
     raise SystemExit(0)
-asyncio.run(run(systemstring))
-print("Finished!")
-asyncio.run(run(f"explorer {getcwd()}\\depots\\{config['DepotID']}"))
+p, s, e = asyncio.run(run(systemstring))
+if p.returncode == 0:
+    print("Finished!")
+    if name == "nt":
+        asyncio.run(run(f"explorer {getcwd()}\\depots\\{config['DepotID']}"))
+else:
+    print("Something went wrong!\n", e)
