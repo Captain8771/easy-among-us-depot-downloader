@@ -25,7 +25,7 @@ if version == "s":
     print("\n".join(e))
     raise SystemExit(0)
 try:
-    systemstring = f"dotnet {dotdepot}/DepotDownloader.dll -app {config['appID']} -depot {config['DepotID']} -manifest {config['Version'][version]['manifestId']} -username {username} -password {password}"
+    systemstring = f"dotnet {dotdepot}/DepotDownloader.dll -app {config['appID']} -depot {config['DepotID']} -manifest {config['Version'][version]['manifestId']} -username {username!r} -password {password!r}"
 except KeyError:
     print(f"Version {version!r} not found")
     raise SystemExit(0)
