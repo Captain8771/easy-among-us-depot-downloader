@@ -1,4 +1,3 @@
-#dotdepot = input("Where is depotdownloader located? (absolute path) > ").rstrip("/").rstrip("\\").replace("\\", "/")
 dotdepot = "./depotdownloader-2.4.5"
 version = input("Version to download? (leave blank for list) > ").replace("s", "") + "s"
 from os import getcwd, name
@@ -9,7 +8,6 @@ async def run(cmd):
         stdout=asyncio.subprocess.PIPE,
         stderr=asyncio.subprocess.PIPE)
     stdout, stderr = await proc.communicate()
-    # print(f'[{cmd!r} exited with {proc.returncode}]')
     if stdout:
         print(f'[stdout]\n{stdout.decode()}')
     if stderr:
