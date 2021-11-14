@@ -1,4 +1,5 @@
-dotdepot = input("Where is depotdownloader located? (absolute path) > ").rstrip("/").rstrip("\\").replace("\\", "/")
+#dotdepot = input("Where is depotdownloader located? (absolute path) > ").rstrip("/").rstrip("\\").replace("\\", "/")
+dotdepot = "./depotdownloader-2.4.5"
 version = input("Version to download? (leave blank for list) > ").replace("s", "") + "s"
 username = input("Steam username? > ")
 password = input("Steam password? > ")
