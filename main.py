@@ -1,8 +1,6 @@
 #dotdepot = input("Where is depotdownloader located? (absolute path) > ").rstrip("/").rstrip("\\").replace("\\", "/")
 dotdepot = "./depotdownloader-2.4.5"
 version = input("Version to download? (leave blank for list) > ").replace("s", "") + "s"
-username = input("Steam username? > ")
-password = input("Steam password? > ")
 from os import getcwd
 import asyncio
 async def run(cmd):
@@ -26,6 +24,8 @@ if version == "s":
     e.reverse()
     print("\n".join(e))
     raise SystemExit(0)
+username = input("Steam username? > ")
+password = input("Steam password? > ")
 try:
     systemstring = f"dotnet {dotdepot}/DepotDownloader.dll -app {config['appID']} -depot {config['DepotID']} -manifest {config['Version'][version]['manifestId']} -username {username} -password {password}"
 except KeyError:
