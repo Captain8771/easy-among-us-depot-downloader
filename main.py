@@ -30,3 +30,5 @@ except KeyError:
     print(f"Version {version!r} not found")
     raise SystemExit(0)
 asyncio.run(run(systemstring))
+print("Finished!")
+asyncio.run(run(f"explorer ./depots/{config['DepotID']}/"))
