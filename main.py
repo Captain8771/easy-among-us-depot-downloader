@@ -22,7 +22,9 @@ if version == "s":
         e.append(key)
     e.reverse()
     print("\n".join(e))
-    raise SystemExit(0)
+    print("CTRL + C to exit")
+    while True:
+        pass
 username = input("Steam username? > ")
 password = input("Steam password? > ")
 try:
