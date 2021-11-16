@@ -34,7 +34,7 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: package the ExE
-        run: pyinstaller main.py
+        run: pyinstaller main.py --onefile
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.2.4
         with:
